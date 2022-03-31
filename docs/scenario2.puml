@@ -1,0 +1,27 @@
+@startuml
+
+  note as scenario 
+    A estratégia da sua
+    classe não atende mais
+  end note
+
+  ' [Classe Deus 5k] --> [ExcelOpenSource]
+  ' [js]
+
+
+  package core {
+    [Classe Deus 5k] --> (Calculator)
+  }
+
+  package gateway {
+    (Calculator) <-- [ExcelAdapter]
+    (Calculator) <-- [js]
+  }
+
+  package external {
+    [Excel]
+  }
+
+  [ExcelAdapter] --> [Excel]
+
+@enduml

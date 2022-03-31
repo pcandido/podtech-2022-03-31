@@ -1,0 +1,33 @@
+@startuml
+
+  note as scenario 
+    Fornecedor te 
+    deixou na mão
+  end note
+
+  ' [classe 1] --> (lib externa)
+  ' [classe 2] --> (lib externa)
+  ' [classe 3] --> (lib externa)
+  ' [classe 4] --> (lib externa)
+  ' [classe 5] --> (lib externa)
+
+  package core {
+    [classe 1] --> (messageria)
+    [classe 2] --> (messageria)
+    [classe 3] --> (messageria)
+    [classe 4] --> (messageria)
+    [classe 5] --> (messageria)
+  }
+
+  package gateway {
+    (messageria) <-- [BullAdapter]
+  }
+
+  package external {
+    [bull]
+  }
+
+  [BullAdapter] --> [bull]
+
+
+@enduml

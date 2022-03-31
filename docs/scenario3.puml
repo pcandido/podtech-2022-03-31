@@ -1,0 +1,25 @@
+@startuml
+
+  note as scenario 
+    Ainda temos as dependências
+  end note
+
+  ' [Radio] --> [BroadcasterXPTO]
+
+
+  package core {
+    [Radio] --> (Broadcaster)
+  }
+
+  package gateway {
+    (Broadcaster) <-- [BroadcasterDouble]
+    (Broadcaster) <-- [BroadcasterXPTOAdapter]
+  }
+
+  package external {
+    [BroadcasterXPTO]
+  }
+
+  [BroadcasterXPTOAdapter] --> [BroadcasterXPTO]
+
+@enduml
